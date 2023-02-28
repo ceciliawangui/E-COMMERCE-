@@ -103,6 +103,39 @@ cartItems.addEventListener('click', event => {
     subtractFromCart(id);
   }
    
-})
+})// Select the remove button and cart items list
+const removeButton = document.querySelector('.remove-items');
+const cartItemsList = document.querySelector('.cart-items');
+
+// Add a click event listener to the remove button
+removeButton.addEventListener('click', function() {
+  // Get all the items in the cart
+  const cartItems = cartItemsList.querySelectorAll('li');
+  
+  // Get the last item in the cart and remove it
+  const lastCartItem = cartItems[cartItems.length - 1];
+  lastCartItem.remove();
+  
+  // Update the total cost of the cart
+  updateCartTotal();
+});
+
+// Define a function to update the total cost of the cart
+function updateCartTotal() {
+  // Select the cart total element
+  const cartTotal = document.querySelector('.cart-total');
+  
+  // Get all the prices of the items in the cart
+  const cartItemPrices = cartItemsList.querySelectorAll('.cart-item-price');
+  const itemPrices = [];
+  for (let i = 0; i < cartItemPrices.length; i++) {
+    itemPrices.push(parseFloat(cartItemPrices[i].innerText.replace('$', '')));
+  }
+  
+  // Calculate the total cost of the items in the cart and update the cart total element
+  const total = itemPrices.reduce((acc, cur) => acc + cur, 0);
+  cartTotal.innerText = total.toFixed(2);
+}
+
 
 fetchProducts();

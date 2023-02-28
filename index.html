@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KihoniStore Ecommerce Site</title>
+  <title>Classic.mall Ecommerce Site</title>
   <link rel="stylesheet" href="index.css">
 
   <link
@@ -19,8 +19,6 @@
     <h1>Classic.mall</h1>
     <i class="fa-solid fa-cart-shopping"></i>
     <i class="logo"> <br>classic.MALL</i>
-    
-    
   </header>
   <nav>
     <div class="buttons">
@@ -29,17 +27,27 @@
     <button class="category-button" data-category="jewelery">Jewelry</button>
     <button class="category-button" data-category="electronics">Electronics</button>
     </div>
-    
   </nav>
-  <main>
+  <main> 
+    <nav>
     <div class="cart">
-      
-      <h2>Cart</h2>
+       <h2>Cart</h2>
       <ul class="cart-items"></ul>
       <p>Total: $<span class="cart-total">0.00</span></p>
-      <button class="remove-items">REMOVE</button>
-      
-    </div>
+      <button class="remove-items">REMOVE</button><div class="payment">
+        <h2>Payment</h2>
+        <form id="payment-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="card-element">Credit or debit card:</label>
+          <div id="card-element"></div>
+          <button type="submit">Pay Now</button>
+        </form>
+     
+      </div>
+    </nav>
     <div class="products"></div>
   </main>
   <script src="index.js"></script>
